@@ -5,7 +5,8 @@ CURSOR = CONN.cursor()
 
 class Dog:
 
-    def __init__(self, name, breed):
+    def __init__(self, name, breed, id = 1):
+        self.id = id
         self.name = name
         self.breed = breed
 
@@ -104,11 +105,11 @@ class Dog:
             id=CURSOR.lastrowid
         )
 
-        return Dog(
-            name=row[1],
-            breed=row[2],
-            id=row[0]
-        )
+        # return Dog(
+        #     name=row[1],
+        #     breed=row[2],
+        #     id=row[0]
+        # )
 
     def update(self):
         sql = """
